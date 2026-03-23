@@ -20,7 +20,8 @@ export default function LocationSection() {
         </MotionContainer>
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <MotionContainer direction="right" delay={0.2}>
-            <Card className="overflow-hidden shadow-xl rounded-2xl border-4 border-white/50">
+            <Card className="overflow-hidden shadow-2xl rounded-3xl border border-white/60 bg-white/40 backdrop-blur-md relative group">
+              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <iframe
                 className="w-full h-full aspect-[4/3] min-h-[450px]"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.041682393248!2d-48.64199998826724!3d-26.9870797765943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b5c8f5858e7b%3A0x7a6ca29d71187a71!2sCentral%20da%20Vis%C3%A3o%20oftalmologia%20em%20Balne%C3%A1rio%20Cambori%C3%BA!5e0!3m2!1sen!2sbr!4v1720645607384!5m2!1sen!2sbr"
@@ -31,30 +32,34 @@ export default function LocationSection() {
               ></iframe>
             </Card>
           </MotionContainer>
-          <MotionContainer direction="left" delay={0.4} className="flex flex-col justify-center space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+          <MotionContainer direction="left" delay={0.4} className="flex flex-col justify-center space-y-8">
+            <div className="space-y-6">
+              <div className="flex items-start gap-5 group">
+                <div className="bg-white shadow-sm border border-primary/10 p-4 rounded-2xl group-hover:bg-primary/5 transition-colors duration-300">
+                  <MapPin className="h-7 w-7 text-primary flex-shrink-0" />
+                </div>
                 <div>
-                  <h3 className="text-xl font-semibold">Endereço</h3>
-                  <p className="text-foreground/80">
+                  <h3 className="text-xl font-bold text-slate-800 mb-1">Endereço</h3>
+                  <p className="text-slate-600 leading-relaxed">
                     Rua 901, nº 431 – Sala 03 – Térreo
                     <br />
                     Balneário Camboriú – SC
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <Clock className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-5 group">
+                <div className="bg-white shadow-sm border border-primary/10 p-4 rounded-2xl group-hover:bg-primary/5 transition-colors duration-300">
+                  <Clock className="h-7 w-7 text-primary flex-shrink-0" />
+                </div>
                 <div>
-                  <h3 className="text-xl font-semibold">Horário de Atendimento</h3>
-                  <p className="text-foreground/80">
+                  <h3 className="text-xl font-bold text-slate-800 mb-1">Horário de Atendimento</h3>
+                  <p className="text-slate-600 leading-relaxed">
                     Segunda a Sábado
                   </p>
                 </div>
               </div>
             </div>
-            <Button asChild size="xl" className="w-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-primary/40 active:scale-95">
+            <Button asChild size="xl" className="w-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-primary/40 active:scale-95 text-lg h-14 rounded-2xl">
               <a href={gmapsUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 Abrir no Google Maps

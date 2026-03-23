@@ -4,23 +4,31 @@ import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
 import { motion } from "framer-motion";
 
+import Image from 'next/image';
+
 const fullTitle = "O futuro da sua visão começa aqui";
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden"
+      className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40 overflow-hidden"
     >
       <motion.div
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1.1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 bg-cover bg-center filter blur-sm"
-        style={{
-          backgroundImage: "url('https://i.imgur.com/qdWhkzn.jpeg')",
-        }}
-      />
+        className="absolute inset-0"
+      >
+        <Image
+          src="https://i.imgur.com/qdWhkzn.jpeg"
+          alt="Fachada da Clínica Central da Visão em Balneário Camboriú"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center filter blur-sm"
+        />
+      </motion.div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 flex justify-center text-center">
         <motion.div
@@ -39,7 +47,7 @@ export default function HeroSection() {
           </motion.div>
 
           <div className="relative w-full mt-2">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline text-center text-foreground">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline text-center text-slate-900">
               {fullTitle.split(" ").map((word, i) => (
                 <motion.span
                   key={i}
@@ -66,7 +74,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.8 }}
-            className="mx-auto max-w-[700px] text-foreground/80 md:text-xl font-medium mt-6 text-center"
+            className="mx-auto max-w-[700px] text-slate-700 md:text-xl font-medium mt-6 text-center"
           >
             Cuidando da sua saúde ocular com excelência e dedicação.
           </motion.p>
@@ -85,7 +93,7 @@ export default function HeroSection() {
                 Agendar Consulta
               </a>
             </Button>
-            <p className="text-sm font-medium text-foreground/70 bg-white/50 px-4 py-1 rounded-full backdrop-blur-sm border border-white/20">
+            <p className="text-sm font-semibold text-slate-800 bg-white/80 px-4 py-1.5 rounded-full backdrop-blur-md border border-white/40 shadow-sm mt-2">
               Atendimento exclusivamente particular (Não aceitamos convênios)
             </p>
           </motion.div>

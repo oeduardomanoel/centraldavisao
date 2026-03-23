@@ -45,17 +45,24 @@ const services = [
     description: "Diagnóstico preciso de daltonismo e outras anomalias."
   }
 ];
+import Image from 'next/image';
 
 export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative w-full py-24 md:py-32 bg-card"
+      className="relative w-full py-24 md:py-32 bg-card overflow-hidden"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-10"
-        style={{ backgroundImage: "url('https://i.imgur.com/Ws7KISz.jpeg')" }}
-      />
+      <div className="absolute inset-0 opacity-10">
+        <Image
+          src="https://i.imgur.com/Ws7KISz.jpeg"
+          alt="Textura de fundo serviços"
+          fill
+          loading="lazy"
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <MotionContainer className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">
@@ -71,15 +78,16 @@ export default function ServicesSection() {
         <div className="mx-auto grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {services.map((service, index) => (
             <MotionContainer key={service.title} delay={index * 0.1} className="h-full">
-              <Card className="flex flex-col p-6 bg-background/80 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300 items-center text-center h-full hover:-translate-y-2 border-primary/10 hover:border-primary/30">
-                <CardHeader className="p-0 flex flex-col items-center text-center w-full">
-                  <div className="bg-primary/10 p-4 rounded-2xl mb-4 flex justify-center items-center group-hover:scale-110 transition-transform duration-300">
+              <Card className="group flex flex-col p-6 bg-white/70 backdrop-blur-lg shadow-sm hover:shadow-2xl transition-all duration-500 items-start text-left h-full hover:-translate-y-2 border border-white/50 hover:border-primary/30 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardHeader className="p-0 flex flex-col items-start text-left w-full relative z-10">
+                  <div className="bg-white shadow-sm border border-primary/10 p-3 rounded-2xl mb-5 flex justify-center items-center group-hover:scale-110 group-hover:bg-primary/5 transition-all duration-500">
                     {service.icon}
                   </div>
-                  <CardTitle className="text-lg font-semibold">{service.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold text-slate-800">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="p-0 mt-2">
-                  <p className="text-sm text-foreground/80">{service.description}</p>
+                <CardContent className="p-0 mt-3 relative z-10">
+                  <p className="text-sm text-slate-600 leading-relaxed">{service.description}</p>
                 </CardContent>
               </Card>
             </MotionContainer>

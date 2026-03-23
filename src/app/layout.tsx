@@ -7,8 +7,54 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'Central da Visão – Oftalmologia especializada',
-  description: 'Há 18 anos cuidando da sua saúde ocular com excelência e dedicação.',
+  title: 'Central da Visão – Oftalmologia especializada em Balneário Camboriú',
+  description: 'Há 18 anos cuidando da sua saúde ocular com excelência e dedicação. Agende sua consulta em Balneário Camboriú com nossos especialistas.',
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    title: 'Central da Visão – Oftalmologia',
+    description: 'Tratamento oftalmológico especializado em Balneário Camboriú. Catarata, refração e exames completos.',
+    url: 'https://www.centraldavisao.com.br',
+    siteName: 'Central da Visão',
+    images: [
+      {
+        url: 'https://i.imgur.com/qdWhkzn.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Fachada da Clínica Central da Visão',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Central da Visão – Oftalmologia',
+    description: '18 anos garantindo qualidade para seus olhos.',
+  },
+  alternates: {
+    canonical: 'https://www.centraldavisao.com.br',
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalOrganization',
+  name: 'Central da Visão',
+  url: 'https://www.centraldavisao.com.br',
+  logo: 'https://i.imgur.com/qdWhkzn.jpeg',
+  description: 'Clínica oftalmológica especializada em Balneário Camboriú.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rua 901, nº 431 – Sala 03 – Térreo',
+    addressLocality: 'Balneário Camboriú',
+    addressRegion: 'SC',
+    addressCountry: 'BR'
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+55-47-98914-6073',
+    contactType: 'Reservations'
+  },
+  medicalSpecialty: 'Ophthalmologic',
 };
 
 export default function RootLayout({
@@ -19,6 +65,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
        <head>
+        <link rel="preload" as="image" href="https://i.imgur.com/qdWhkzn.jpeg" fetchPriority="high" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* Google Tag Manager */}
         <Script
           id="gtm"

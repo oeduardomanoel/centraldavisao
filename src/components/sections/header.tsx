@@ -17,10 +17,10 @@ const NavLink = ({ href, label, onClick }: { href: string; label: string; onClic
   <a
     href={href}
     onClick={onClick}
-    className="relative text-sm font-medium text-foreground/80 transition-colors hover:text-primary group"
+    className="relative px-2 py-2 text-sm font-medium text-slate-800 transition-colors hover:text-primary group"
   >
     {label}
-    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
   </a>
 );
 
@@ -39,7 +39,7 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
-          ? "border-b bg-white/80 backdrop-blur-md shadow-sm"
+          ? "border-b border-primary/10 bg-white/90 backdrop-blur-lg shadow-sm"
           : "bg-transparent"
         }`}
     >

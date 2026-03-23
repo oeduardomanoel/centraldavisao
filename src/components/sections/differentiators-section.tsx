@@ -39,12 +39,12 @@ export default function DifferentiatorsSection() {
         </MotionContainer>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {differentiators.map((item, index) => (
-            <MotionContainer key={item.title} delay={index * 0.1} direction="up" className="group flex flex-col items-center text-center p-6 rounded-2xl bg-background shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-transparent hover:border-primary/20">
-              <div className="bg-primary/10 p-4 rounded-full mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+            <MotionContainer key={item.title} delay={index * 0.1} direction="up" className="group flex flex-col items-center text-center p-8 rounded-3xl bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/60 hover:border-primary/30">
+              <div className="bg-white shadow-sm border border-primary/10 p-4 rounded-2xl mb-6 group-hover:scale-110 transition-all duration-500 group-hover:bg-primary/5">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-              <p className="text-sm text-foreground/80">{item.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
+              <p className="text-base text-slate-600 leading-relaxed">{item.description}</p>
             </MotionContainer>
           ))}
         </div>
