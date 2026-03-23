@@ -10,7 +10,7 @@ export default function AboutDoctorSection() {
           <MotionContainer direction="right" className="relative flex justify-center lg:order-last">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 z-10">
               <Image
-                src="/images/dra-jacqueline.jpg"
+                src="/images/dra-jacqueline.jpeg"
                 alt="Dra. Jacqueline Staniszewski Ladeia"
                 width={600}
                 height={800}
@@ -31,16 +31,24 @@ export default function AboutDoctorSection() {
               <span>CRM 26205</span>
               <span>RQE 22818</span>
             </div>
-            <p className="text-foreground/80 md:text-lg/relaxed leading-relaxed">
-              Com vasta experiência em oftalmologia, a Dra. Jacqueline dedica-se a proporcionar a melhor qualidade visual para seus pacientes.
-              Especialista em tratamentos modernos e personalizados, ela combina tecnologia de ponta com um atendimento humanizado e acolhedor.
+            <p className="text-foreground/80 md:text-lg/relaxed leading-relaxed mb-4">
+              Com vasta experiência em oftalmologia, a Dra. Jacqueline dedica-se a proporcionar a melhor qualidade visual para seus pacientes. Especialista em tratamentos modernos e personalizados, ela combina tecnologia de ponta com um atendimento humanizado.
             </p>
 
-            <div className="pl-6 border-l-4 border-primary/30 py-2">
-              <h3 className="text-xl font-bold mb-2 text-foreground">Nossa Missão</h3>
-              <p className="text-foreground/80">
-                Cuidar da sua visão com excelência, ética e tecnologia, garantindo que você enxergue o mundo com mais clareza e qualidade de vida.
-              </p>
+            <div className="space-y-3 mt-2 pr-4 relative">
+              <div className="absolute top-0 bottom-0 left-[3px] w-px bg-primary/20 -z-10" />
+              {[
+                "Graduação pela Universidade do Vale do Itajaí (Santa Catarina)",
+                "Residência médica em Oftalmologia pelo Hospital Quarteirão da Saúde (São Paulo)",
+                "Fellowship em Retina Clínica pela Benvista (São Paulo)",
+                "Membro do Conselho Brasileiro de Oftalmologia",
+                "Título de especialista em Oftalmologia pela AMB e CBO"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div className="mt-2.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0 ring-4 ring-background" />
+                  <p className="text-foreground/80 leading-relaxed font-medium">{item}</p>
+                </div>
+              ))}
             </div>
 
             <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
